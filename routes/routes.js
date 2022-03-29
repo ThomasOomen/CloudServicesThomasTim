@@ -8,17 +8,13 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 
 //Controllers
-const locationController = require('../controllers/location.controller');
-const locationScoreController = require('../controllers/locationScore.controller');
-const playedTargetController = require('../controllers/playedTarget.controller');
-const playedTargetScoreController = require('../controllers/playedTargetScores.controller');
 
-const targetLocationController = require('../controllers/targetLocationController');
-const targetScoreController = require('../controllers/targetScore.controller');
+const playedTargetController = require('../controllers/playedTarget.controller');
+const userController = require("../controller/userController.controller");
 
 //routes
 const targetRoutes = require("./targetRoutes");
-const locationRoutes = require("./locatonRoutes");
+const locationRoutes = require("./locationRoutes");
 const playedTargetsRoutes = require("./playedTargetRoutes");
 const userRoutes = require("./userRoutes");
 
