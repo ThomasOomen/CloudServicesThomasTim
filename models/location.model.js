@@ -1,29 +1,25 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const TargetSchema = new Schema({
-    name:{
+const LocationSchema = new Schema({
+    locationName:{
         type:String,
         required: true
     },
-    description:{
+    longitude:{
         type:String,
         required:true
     },
-    picture:{
-        type:String,
-        required:true
+    latitude:{
+
     },
-    hints:[{
+    range:[{
 
     }],
-    score:[{
+    targets:[{
 
     }],
-    created_at:{
-
-    }
 })
 
-const TargetModel = mongoose.model('Target', TargetSchema)
+const locationModel = mongoose.model('location', LocationSchema)
 module.exports = TargetModel;
