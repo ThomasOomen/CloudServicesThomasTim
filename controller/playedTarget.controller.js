@@ -1,5 +1,5 @@
 const playedTarget = require("../models/playedTarget.model");
-const target = require("../models/targets.model");
+const target = require("../models/target.model");
 const fs = require("fs");
 
 exports.getPlayedTargets = (req, res) => {

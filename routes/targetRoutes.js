@@ -6,21 +6,21 @@ const targetController = require('../controller/target.controller');
 router
     .route("/target")
     .get(targetController.getTargets)
-    .post(targetController.newTarget)
+    .post(targetController.newTarget);
 
 router
     .route("/target/:target_id")
     .get(targetController.viewTarget)
     .put(targetController.updateTarget)
-    .delete(targetController.deleteTarget)
+    .delete(targetController.deleteTarget);
 
 router
     .route("/target/:target_id/score")
-    .get(targetController.getTargetScores)
+    .get(targetController.getTargetScores);
 
 router
     .route("/target/:target_id/score/:score_id")
-    .get(targetController.getTargetScore)
+    .get(targetController.getTargetScore);
 
 router
     .route("/target/:target_id/score/:score_id/tag/:tag_id")
@@ -30,3 +30,4 @@ router
     .route('/target/:target_id/hints/:hint_id')
     .get(targetController.getTargetHint);
 
+module.exports = router

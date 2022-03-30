@@ -1,6 +1,6 @@
 const express = require("express");
+app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
 
-require(".authorization/auth");
-const router = require("./routes/routes");
+app.use('/', require("./routes/routes"));

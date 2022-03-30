@@ -1,0 +1,36 @@
+{
+  "name": "cloud_services_eindopdracht",
+  "version": "1.0.0",
+  "description": "eind opdracht voor cloud services (webs5) Tim & Thomas",
+  "main": "app.js",
+  "scripts": {
+    "test": "test app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasOomen/CloudServicesThomasTim.git"
+  },
+  "author": "Tim Kaerts, Thomas Oomen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomasOomen/CloudServicesThomasTim/issues"
+  },
+  "homepage": "https://github.com/ThomasOomen/CloudServicesThomasTim#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "chai-http": "^4.3.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "form-data": "^4.0.0",
+    "got": "^11.8.2",
+    "jstoxml": "^2.0.6",
+    "mongodb": "^3.6.8",
+    "mongodb-memory-server": "^6.9.6",
+    "mongoose": "^5.12.10",
+    "nyc": "^15.1.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "password": "^0.1.1"
+  }
+}

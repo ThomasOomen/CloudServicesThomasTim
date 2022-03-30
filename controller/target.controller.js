@@ -1,5 +1,5 @@
-const Target = require('../models/target.model');
-const fs = require('fs');
+const Target = require("../models/target.model");
+const fs = require("fs");
 
 exports.getTargets = (req, res) => {
     //Get all target.
@@ -23,6 +23,10 @@ exports.deleteTarget = (req, res) => {
 
 exports.getTargetScores = (req, res) => {
     //get selected target score.
+};
+
+exports.getTargetScore = (req, res) => {
+    
 };
 
 exports.getTargetTagScore = (req, res) => {

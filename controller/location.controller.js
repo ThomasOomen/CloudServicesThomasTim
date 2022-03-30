@@ -1,9 +1,14 @@
 const location = require("../models/location.model");
-const target = require("../models/targets.model");
+const target = require("../models/target.model");
 const fs = require("fs");
 
 exports.getLocations = (req, res) => {
     //Get all locations.
+    const pageLimit = 2;
+    let page = 0;
+    if(req.query.page){
+        page = parseInt(req.query.page)
+    }
 };
 
 exports.newLocation = (req, res) => {

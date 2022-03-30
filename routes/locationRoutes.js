@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const locationController = require('../controllers/location.controller');
+const locationController = require("../controller/location.controller");
 
 router
     .route("/location")
@@ -44,6 +44,8 @@ router
     .route("/location/:location_id/target/:target_id/score/:score_id/tag/:tag_id")
     .get(locationController.getLocationTargetTagsScores);   
 
-route
+router
     .route("/location/target/:target_id")
     .get(locationController.belongsToUser);
+
+module.exports = router

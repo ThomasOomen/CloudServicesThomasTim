@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const playedTargetController = require("../controllers/playedTarget.controller");
+const playedTargetController = require("../controller/playedTarget.controller");
 
 router
     .route("/playedTarget")
@@ -33,4 +33,6 @@ router
 
 router
     .route("/playedTarget/:playedTarget_id/score/:score_id/tag")
-    .get(playedTargetController.getPlayedTargetTagsScore)
+    .get(playedTargetController.getPlayedTargetTagsScore);
+    
+module.exports = router;
