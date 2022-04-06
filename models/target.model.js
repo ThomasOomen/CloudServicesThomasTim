@@ -6,22 +6,30 @@ const TargetSchema = new Schema({
         type:String,
         required: true
     },
+
     description:{
         type:String,
         required:true
     },
+
     picture:{
         type:String,
         required:true
     },
+
     hints:[{
-
+        type: String,
+        required: false
     }],
+
     score:[{
-
+        type: Number,
+        required: false
     }],
-    created_at:{
 
+    created_at:{
+        default: Date.now(),
+        type: Date
     }
 })
 

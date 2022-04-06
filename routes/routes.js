@@ -13,10 +13,10 @@ const playedTargetsRoutes = require("./playedTargetRoutes");
 const userRoutes = require("./userRoutes");
 const authRouter = require("./authorization");
 
-router.use("./targetRoutes", targetRoutes);
-router.use("./locationRoutes", locationRoutes);
-router.use("./playedTargetRoutes", playedTargetsRoutes);
-router.use("./userRoutes", userRoutes);
-router.use("./authorization", authRouter);
+router.use("/targetRoutes", targetRoutes);
+router.use("/locationRoutes", locationRoutes);
+router.use("/playedTargetRoutes", playedTargetsRoutes);
+router.use("/userRoutes", userRoutes);
+router.use("/authorization", authRouter);
 
 module.exports = router;
