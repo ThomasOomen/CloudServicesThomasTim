@@ -1,13 +1,26 @@
 const express = require("express");
-app = express();
+
 const mongoose = require("mongoose");
 const passport = require("passport");
-const port = 3000
 const router = require("./routes/routes");
+let uriDb = "mongodb://";
 
-app.use('/', router);
+if (process.env.NODE_ENV !== "production"){
+    require("dotenv").config();
+}
 
-  
-app.listen(port, () => {
-console.log(`Example app listening on port ${port}`)
-})
+if (process.env.username && process.env.password) {
+    uriDb += `${username}:${password}@`;
+}
+
+uriDb += `${process.env.HOSTNAME}:${process.env.PORT}/${process.env.DBNAME}`
+
+mongoose.connect(uriDb, {useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        const app = express();
+        app.use('/', router);
+        app.listen(process.env.PORT, () => {
+            console.log("server has started on port " + process.env.PORT);
+        })
+    }
+)

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-import { validationLatitudeLongitude } from "validation-latitude-longitude";
+// const validationLatitudeLongitude = require("validation-latitude-longitude");
 
 const LocationSchema = new Schema({
     locationName:{
