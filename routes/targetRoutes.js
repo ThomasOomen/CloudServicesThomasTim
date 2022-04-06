@@ -23,10 +23,6 @@ router
     .get(targetController.getTargetScore);
 
 router
-    .route("/target/:target_id/score/:score_id/tag/:tag_id")
-    .get(targetController.getTargetTagScore);
-
-router
     .route('/target/:target_id/hints/:hint_id')
     .get(targetController.getTargetHint);
 

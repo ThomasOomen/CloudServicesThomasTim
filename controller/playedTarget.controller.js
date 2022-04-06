@@ -4,6 +4,8 @@ const fs = require("fs");
 
 exports.getPlayedTargets = (req, res) => {
     //Get all played targets.
+    console.log("doe iets");
+    res.send("get played Targets");
 };
 
 exports.newPlayedTarget = (req, res) => {

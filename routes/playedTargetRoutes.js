@@ -25,14 +25,5 @@ router
 router
     .route("/playedTarget/:playedTarget_id/score/:score_id")
     .get(playedTargetController.getPlayedTargetScores)
-
-    //x
-router
-    .route("/playedTarget/:playedTarget_id/score/:score_id/tag/:tag_id")
-    .get(playedTargetController.getPlayedTargetTagScore)
-
-router
-    .route("/playedTarget/:playedTarget_id/score/:score_id/tag")
-    .get(playedTargetController.getPlayedTargetTagsScore);
     
 module.exports = router;

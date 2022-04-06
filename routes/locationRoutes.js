@@ -35,15 +35,6 @@ router
     .route("/location/:location_id/target/:target_id/score/")
     .get(locationController.getLocationTargetScores);   
 
-    //x
-router
-    .route("/location/:location_id/target/:target_id/score/:score_id/tag/:tag_id")
-    .get(locationController.getLocationTargetTagScore);    
-    //x
-router
-    .route("/location/:location_id/target/:target_id/score/:score_id/tag/:tag_id")
-    .get(locationController.getLocationTargetTagsScores);   
-
 router
     .route("/location/target/:target_id")
     .get(locationController.belongsToUser);
