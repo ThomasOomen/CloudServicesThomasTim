@@ -13,7 +13,7 @@ if (process.env.username && process.env.password) {
     uriDb += `${username}:${password}@`;
 }
 
-uriDb += `${process.env.HOSTNAME}:${process.env.PORT}/${process.env.DBNAME}`
+uriDb += `${process.env.HOSTNAME}:${process.env.DBPORT}/${process.env.DBNAME}`
 
 mongoose.connect(uriDb, {useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
