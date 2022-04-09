@@ -400,3 +400,4 @@ FodyWeavers.xsd
 
 coverage
 .nyc_output
+.env.heroku
