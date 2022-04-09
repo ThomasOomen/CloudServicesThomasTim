@@ -25,38 +25,33 @@ const UserSchema = new Schema({
         required: true,
         minlength: 6,
     },
-    role: {
-        type: String,
-        required: true,
-    }
 });
 
-UserSchema.pre(
-    'save',
-    async function(next){
-        try {
-
-            const newUser = this;
-            const salt = await bcrypt.genSalt(10);
-            const hashedPassword = await bcrypt.hash(this.password, salt);
+// UserSchema.pre(
+//     'save',
+//     async function(next){
+//         try {
+//             const newUser = this;
+//             const salt = await bcrypt.genSalt(10);
+//             const hashedPassword = await bcrypt.hash(this.password, salt);
     
-            this.password = hashedPassword
-            next(); 
-        } catch (error) {
-            next(error);
-        }
+//             this.password = hashedPassword
+//             next(); 
+//         } catch (error) {
+//             next(error);
+//         }
 
-    }
-);
+//     }
+// );
 
-UserSchema.methods.isValidPassword = async function(hashedPassword) {
-    try {
-        return await bcrypt.compare(hashedPassword, this.password);
-    }
-    catch {
-        throw new Error (error);
-    }
-}
+// UserSchema.methods.isValidPassword = async function(hashedPassword) {
+//     try {
+//         return await bcrypt.compare(hashedPassword, this.password);
+//     }
+//     catch {
+//         throw new Error (error);
+//     }
+// }
 
 const UserModel = mongoose.model('User', UserSchema);
 module.exports = UserModel;
