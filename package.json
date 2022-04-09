@@ -4,7 +4,8 @@
   "description": "eind opdracht voor cloud services (webs5) Tim & Thomas",
   "main": "app.js",
   "scripts": {
-    "test": "nyc --reporter=html mocha"
+    "test": "nyc --reporter=html mocha",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
