@@ -13,22 +13,22 @@ const LocationSchema = new Schema({
         type:Number,
         required:true,
         validate: {
-            validator: function(v) {
-                return validationLatitudeLongitude.longitude(v);
+            validator: function (v) {
+                return /^-?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/.test(v);
             },
-            message: result => `${result.value} is not valid`
-        }
+            message: props => `${props.value} is not a valid longitude!`
+        },
     },
 
     latitude:{
         type:Number,
         required:true,
         validate: {
-            validator: function(v) {
-                return validationLatitudeLongitude.latitude(v);
+            validator: function (v) {
+                return /^-?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/.test(v);
             },
-            message: result => `${result.value} is not valid`
-        }
+            message: props => `${props.value} is not a valid latitude!`
+        },
     },
 
     range:{
