@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
+
 const locationController = require("../controller/location.controller");
 const locationTargetController = require("../controller/locationTarget.controller");
-const targetHintController = require("../controller/targetHintController")
+const locationTargetHintController = require("../controller/locationTargetHint.controller")
 const locationTargetScoreController = require("../controller/locationTargetScore.controller");
 const locationOwnerController = require("../controller/locationOwner.controller");
 
@@ -28,7 +29,7 @@ router
 
 router
     .route("/location/:location_id/target/:target_id/hints/:hint_id")
-    .get(targetHintController.getLocationTargetHint);
+    .get(locationTargetHintController.getLocationTargetHint);
 
 router
     .route("/location/:location_id/target/:target_id/score/:score_id")

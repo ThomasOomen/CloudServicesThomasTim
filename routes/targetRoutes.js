@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const targetController = require('../controller/target.controller');
+const targetScoreController = require("../controller/targetScore.controller");
+const targetHintController = require("../controller/targetHint.controller");
 
 router
     .route("/target")
@@ -15,15 +17,15 @@ router
     .delete(targetController.deleteTarget);
 
 router
-    .route("/target/:target_id/score")
-    .get(targetController.getTargetScores);
+    .route("/target/:target_id/score/:score_id")
+    .get(targetScoreController.getTargetScore);
 
 router
-    .route("/target/:target_id/score/:score_id")
-    .get(targetController.getTargetScore);
+    .route("/target/:target_id/score")
+    .get(targetScoreController.getTargetScores);
 
 router
     .route('/target/:target_id/hints/:hint_id')
-    .get(targetController.getTargetHint);
+    .get(targetHintController.getTargetHint);
 
 module.exports = router

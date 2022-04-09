@@ -1,10 +1,11 @@
+const PlayedTarget = require("../models/playedTarget.model");
 const Location = require("../models/location.model");
 const Target = require("../models/location.model");
 const helpers = require("./helper.controller");
 let sendData = helpers.sendJsonXml;
 
-exports.belongsToUser = (req, res) => {
-    Location.find({ targets: req.params.target_id }, (err, location) => {
+exports.LinkedTarget = (req, res) => {
+    PlayedTarget.find({ target: req.params.target_id }, (err, playedTarget) => {
         if (err) {
             res.status(400).json({
                 status: 'error',
@@ -13,8 +14,8 @@ exports.belongsToUser = (req, res) => {
         }
         else {
             res.status(200).sendData(JSON.stringify({
-                message: 'Location details loading..',
-                data: location,
+                message: 'PlayedTarget details loading..',
+                data: playedTarget,
             }));
         }
     });

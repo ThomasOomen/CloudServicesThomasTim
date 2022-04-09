@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const playedTargetController = require("../controller/playedTarget.controller");
+const playedTargetScoreController = require("../controller/playedTargetScore.controller");
+const playedTargetLinkedController = require("../controller/playedTargetLinkedTargets.controller");
 
 router
     .route("/playedTarget")
@@ -16,14 +18,14 @@ router
 
 router
     .route("playedTarget/target/:target_id")
-    .get(playedTargetController.LinkedTarget)
+    .get(playedTargetLinkedController.LinkedTarget)
 
 router
     .route("/playedTarget/:playedTarget_id/score/:score_id")
-    .get(playedTargetController.getPlayedTargetScore);
+    .get(playedTargetScoreController.getPlayedTargetScore);
 
 router
     .route("/playedTarget/:playedTarget_id/score/:score_id")
-    .get(playedTargetController.getPlayedTargetScores)
+    .get(playedTargetScoreController.getPlayedTargetScores)
     
 module.exports = router;

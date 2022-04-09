@@ -1,4 +1,5 @@
 const Location = require("../models/location.model");
+const Target = require("../models/location.model");
 const helpers = require("./helper.controller");
 let sendData = helpers.sendJsonXml;
 
@@ -90,9 +91,4 @@ exports.updateLocation = (req, res) => {
             }
         },
     );
-};
-
-exports.belongsToUser = (req, res) => {
-    //Get user that made target of location.
-    res.send("get user who made location");
 };
