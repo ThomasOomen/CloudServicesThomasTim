@@ -1,6 +1,6 @@
 const Location = require("../models/location.model");
 const helpers = require("./helper.controller");
-let sendData = helpers.sendJsonXml
+let sendData = helpers.sendJsonXml;
 
 exports.getLocations = (req, res) => {
     let queryItems = (Object.keys(req.query));
@@ -31,53 +31,65 @@ exports.getLocations = (req, res) => {
 };
 
 exports.newLocation = (req, res) => {
-    //create new location.
-    res.send("new locations");
+    const location = new Location();
+    const LocationObj = req.body;
+    Object.keys(LocationObj).forEach((key) => {
+        location[key] = LocationObj[key];
+    });
+    // save the Location and check for errors
+    location.save((LocationError) => {
+        if (LocationError) {
+            res.status(400).json({
+                status: 'error',
+                error: LocationError,
+            });
+        }
+        else {
+            res.status(201).json({
+                message: 'New Location created!',
+                data: location,
+            });
+        }
+    });
 };
 
 exports.viewLocation = (req, res) => {
-    //view selected location.
-    res.send("view locations");
+    Location.findById(req.params.location_id, (err, location) => {
+        if (err) {
+            res.status(400).json({
+                status: 'error',
+                error: err,
+            });
+        }
+        else {
+            res.status(200).sendData(JSON.stringify({
+                message: 'Location details loading..',
+                data: location,
+            }));
+        }
+    });
 };
 
 exports.updateLocation = (req, res) => {
-    //update selected location.
-    res.send("update locations");
-};
-
-exports.deleteLocation = (req, res) => {
-    //Delete selected location.
-    res.send("delete locations");
-};
-
-exports.addTarget = (req, res) => {
-    //Add new target to selected location.
-    res.send("add new target to locations");
-};
-
-exports.getLocationTarget = (req, res) => {
-    //get target from selected location.
-    res.send("get target from location");
-};
-
-exports.getAllLocationTargets = (req, res) => {
-    //Get all target of selected location.
-    res.send("get all targets from location");
-};
-
-exports.getLocationTargetHint = (req, res) => {
-    //get hints of selected locations.
-    res.send("get location hint");
-};
-
-exports.getLocationTargetScore = (req, res) => {
-    //get location target score.
-    res.send("get location target score");
-};
-
-exports.getLocationTargetScores = (req, res) => {
-    //Get location target scores.
-    res.send("get location target scores");
+    Location.findByIdAndUpdate(
+        req.params.location_id,
+        req.body,
+        { new: true, runValidators: true },
+        (err, location) => {
+            if (err) {
+                res.status(400).json({
+                    status: 'error',
+                    error: err,
+                });
+            }
+            else {
+                res.status(200).sendData(JSON.stringify({
+                    message: 'Location Info updated',
+                    data: location,
+                }));
+            }
+        },
+    );
 };
 
 exports.belongsToUser = (req, res) => {

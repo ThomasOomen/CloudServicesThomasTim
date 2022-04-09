@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
-
 const locationController = require("../controller/location.controller");
+const locationTargetController = require("../controller/locationTarget.controller");
+const targetHintController = require("../controller/targetHintController")
+const locationTargetScoreController = require("../controller/locationTargetScore.controller");
+const locationOwnerController = require("../controller/locationOwner.controller");
 
 router
     .route("/location")
@@ -12,31 +15,31 @@ router
     .route("/location/:location_id")
     .get(locationController.viewLocation)
     .put(locationController.updateLocation)
-    .delete(locationController.deleteLocation)
-    .post(locationController.addTarget);
+    .delete(locationTargetController.deleteLocation)
+    .post(locationTargetController.addTarget);
 
 router
     .route("/location/:location_id/target/:target_id/")
-    .get(locationController.getLocationTarget);
+    .get(locationTargetController.getLocationTarget);
 
 router
     .route("/location/:location_id/target")
-    .get(locationController.getAllLocationTargets);
+    .get(locationTargetController.getAllLocationTargets);
 
 router
     .route("/location/:location_id/target/:target_id/hints/:hint_id")
-    .get(locationController.getLocationTargetHint);
+    .get(targetHintController.getLocationTargetHint);
 
 router
     .route("/location/:location_id/target/:target_id/score/:score_id")
-    .get(locationController.getLocationTargetScore);    
+    .get(locationTargetScoreController.getLocationTargetScore);    
 
 router
     .route("/location/:location_id/target/:target_id/score/")
-    .get(locationController.getLocationTargetScores);   
+    .get(locationTargetScoreController.getLocationTargetScores);   
 
 router
     .route("/location/target/:target_id")
-    .get(locationController.belongsToUser);
+    .get(locationOwnerController.belongsToUser);
 
 module.exports = router
