@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const passport = require("passport");
+const jwt = require("jsonwebtoken");
 const router = require("./routes/routes");
 const helpers = require("./controller/helper.controller");
 const { toXML } = require('jstoxml');
