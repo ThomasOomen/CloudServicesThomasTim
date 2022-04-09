@@ -9,7 +9,7 @@ const playedTargetLinkedController = require("../controller/playedTargetLinkedTa
 router
     .route("/playedTarget")
     .get(verify, playedTargetController.getPlayedTargets)
-    .post(verify, layedTargetController.newPlayedTarget);
+    .post(verify, playedTargetController.newPlayedTarget);
 
 router
     .route("/playedTarget/:playedTarget_id")
