@@ -2,6 +2,7 @@ const PlayedTarget = require("../models/playedTarget.model");
 const Location = require("../models/location.model");
 const Target = require("../models/target.model");
 const helpers = require("./helper.controller");
+const fs = require('fs');
 let sendData = helpers.sendJsonXml;
 
 exports.getPlayedTargets = (req, res) => {
@@ -67,7 +68,7 @@ exports.newPlayedTarget = (req, res) => {
         if (err) {
             res.status(400).json({
                 status: 'error',
-                error: err,
+                error: TargetError,
             });
         }
         else {
@@ -191,7 +192,9 @@ exports.newPlayedTarget = (req, res) => {
             }
         }
     })
-};
+
+
+}
 
 exports.viewPlayedTarget = (req, res) => {
     PlayedTarget.findById(req.params.playedTarget_id, (err, playedTarget) => {
