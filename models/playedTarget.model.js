@@ -31,3 +31,6 @@ const playedTargetSchema = new Schema({
 
 const playedTargetModel = mongoose.model('playedTarget', playedTargetSchema)
 module.exports = playedTargetModel;
+module.exports.get = (callback, limit) => {
+    playedTarget.find(callback).limit(limit);
+};
