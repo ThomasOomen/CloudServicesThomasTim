@@ -1,5 +1,5 @@
 const Location = require("../models/location.model");
-const Target = require("../models/location.model");
+const Target = require("../models/target.model");
 const helpers = require("./helper.controller");
 const fs = require('fs');
 let sendData = helpers.sendJsonXml;
