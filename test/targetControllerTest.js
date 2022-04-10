@@ -4,8 +4,6 @@ const expect = require('chai').expect;
 const should = require('chai').should();
 const LocationModel = require('../models/location.model')
 const TargetModel = require('../models/target.model')
-const PlayedTarget = require('../models/playedTarget.model')
-const UserModel = require('../models/user.model')
 const bodyParser = require('body-parser')
 const dbHandler = require('./db-handler');
 const app = require('express')();
@@ -15,10 +13,8 @@ app.use(function (req, res, next) {
 	res.sendData = function (obj) { sendData(obj, req, res) };
 	next();
 });
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 app.use(require('../routes/authorization'));
 app.use(require('../routes/locationRoutes'));
 app.use(require('../routes/playedTargetRoutes'));

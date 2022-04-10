@@ -1,14 +1,13 @@
 const chai = require('chai')
 const chaiHttp = require('chai-http')
+const expect = require('chai').expect;
+const should = require('chai').should();
 const LocationModel = require('../models/location.model')
 const TargetModel = require('../models/target.model')
 const bodyParser = require('body-parser')
 const app = require('express')();
-chai.use(chaiHttp);
-
-// require('../services/authentication/authentication');
-
 const dbHandler = require('./db-handler');
+chai.use(chaiHttp);
 
 app.use(function (req, res, next) {
 	res.sendData = function (obj) { sendData(obj, req, res) };
@@ -17,7 +16,6 @@ app.use(function (req, res, next) {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 app.use(require('../routes/authorization'));
 app.use(require('../routes/locationRoutes'));
 app.use(require('../routes/playedTargetRoutes'));
@@ -191,134 +189,5 @@ describe('locationControllerTest', function () {
 					});
 			});
 		});
-        // describe('return target', function () {
-		// 	it('should return a specific target inside a location', function (done) {
-		// 		target1 = new TargetModel({ name: 'plaatje1', description: 'test', picture: 'test' })
-		// 		target1.save()
-		// 		target2 = new TargetModel({ name: 'plaatje2', description: 'test', picture: 'test' })
-		// 		target2.save()
-		// 		location = new LocationModel({ locationName: 'Amsterdam', latitude: 80, longitude: 80, range: 20, targets: [target1._id, target2._id] })
-		// 		location.save()
-
-		// 		chai.request(app)
-		// 			.get('/location/' + location._id + '/target/' + target1._id)
-		// 			.end((err, res) => {
-		// 				if (err) { return done(err); }
-		// 				res.should.have.status(200)
-		// 				res.body.data.name.should.be.eql('plaatje1')
-		// 				done();
-        //             });
-		
-        //     });
-        //     it('should not return a target inside a location that doesnt exist', function (done) {
-		// 		location = new LocationModel({ locationName: 'Amsterdam', latitude: 80, longitude: 80, range: 20 })
-		// 		location.save()
-
-		// 		chai.request(app)
-		// 			.get('/location/' + location._id + '/target/20')
-		// 			.end((err, res) => {
-		// 				if (err) { return done(err); }
-		// 				res.should.have.status(400)
-		// 				done();
-		// 			});
-		// 	});
-        // });
-        // describe('return targets', function () {
-		// 	it('should return all targets inside a location', function (done) {
-		// 		target1 = new TargetModel({ name: 'plaatje1', description: 'test', picture: 'test' })
-		// 		target1.save()
-		// 		target2 = new TargetModel({ name: 'plaatje2', description: 'test', picture: 'test' })
-		// 		target2.save()
-		// 		location = new LocationModel({ locationName: 'Amsterdam', latitude: 80, longitude: 80, range: 20, targets: [target1._id, target2._id] })
-		// 		location.save()
-
-		// 		chai.request(app)
-		// 			.get('/location/' + location._id + '/target/')
-		// 			.end((err, res) => {
-		// 				if (err) { return done(err); }
-		// 				res.should.have.status(200)
-		// 				res.body.data.should.have.length(2)
-		// 				done();
-		// 			});
-		// 	});
-		// });
-//         // describe('return hint', function () {
-// 		// 	it('should return specific hint inside a location', function (done) {
-// 		// 		target1 = new TargetModel({ name: 'plaatje1', description: 'test', picture: 'test', hints: ['hint1', 'hint2'] })
-// 		// 		target1.save()
-// 		// 		location = new LocationModel({ locationName: 'Amsterdam', latitude: 80, longitude: 80, range: 20, targets: [target1._id] })
-// 		// 		location.save()
-
-// 		// 		chai.request(app)
-// 		// 			.get('/location/' + location._id + '/target/' + target1._id + '/hints/' + 0)
-// 		// 			.end((err, res) => {
-// 		// 				if (err) { return done(err); }
-// 		// 				res.should.have.status(200)
-// 		// 				res.body.data.should.be.eql('hint1')
-// 		// 				done();
-// 		// 			});
-// 			// it('should not return not existing hint inside a location', function (done) {
-// 			// 	target1 = new TargetModel({ name: 'plaatje1', description: 'test', picture: 'test' })
-// 			// 	target1.save()
-// 			// 	location = new LocationModel({ locationName: 'Amsterdam', latitude: 80, longitude: 80, range: 20, targets: [target1._id] })
-// 			// 	location.save()
-
-// 			// 	chai.request(app)
-// 			// 		.get('/location/' + location._id + '/target/' + target1._id + '/hints/' + 0)
-// 			// 		.end((err, res) => {
-// 			// 			if (err) { return done(err); }
-// 			// 			res.should.have.status(400)
-// 			// 			done();
-// 			// 		});
-// 			// });
-// 		// });
-// 		// describe('return score', function () {
-// 		// 	it('should return specific score inside a location', function (done) {
-// 		// 		target1 = new TargetModel({ name: 'plaatje1', description: 'test', picture: 'test', score: [{ points: 200 }, { points: 100 }] })
-// 		// 		target1.save()
-// 		// 		location = new LocationModel({ locationName: 'Amsterdam', latitude: 80, longitude: 80, range: 20, targets: [target1._id] })
-// 		// 		location.save()
-
-// 		// 		chai.request(app)
-// 		// 			.get('/location/' + location._id + '/target/' + target1._id + '/score/' + 0)
-// 		// 			.end((err, res) => {
-// 		// 				if (err) { return done(err); }
-// 		// 				res.should.have.status(200)
-// 		// 				res.body.data.points.should.be.eql(200)
-// 		// 				done();
-// 		// 			});
-// 		// 	});
-// 		// 	it('should not return not existing score inside a location', function (done) {
-// 		// 		target1 = new TargetModel({ name: 'plaatje1', description: 'test', picture: 'test' })
-// 		// 		target1.save()
-// 		// 		location = new LocationModel({ locationName: 'Amsterdam', latitude: 80, longitude: 80, range: 20 })
-// 		// 		location.save()
-
-// 		// 		chai.request(app)
-// 		// 			.get('/location/' + location._id + '/target/' + target1._id + '/score/' + 0)
-// 		// 			.end((err, res) => {
-// 		// 				if (err) { return done(err); }
-// 		// 				res.should.have.status(400)
-// 		// 				done();
-// 		// 			});
-// 		// 	});
-// 		// });
-// 		// describe('return scores', function () {
-// 		// 	it('should return all scores inside a location', function (done) {
-// 		// 		target1 = new TargetModel({ name: 'plaatje1', description: 'test', picture: 'test', score: [{ points: 200 }, { points: 100 }] })
-// 		// 		target1.save()
-// 		// 		location = new LocationModel({ locationName: 'Amsterdam', latitude: 80, longitude: 80, range: 20, targets: [target1._id] })
-// 		// 		location.save()
-
-// 		// 		chai.request(app)
-// 		// 			.get('/location/' + location._id + '/target/' + target1._id + '/score/')
-// 		// 			.end((err, res) => {
-// 		// 				if (err) { return done(err); }
-// 		// 				res.should.have.status(200)
-// 		// 				res.body.data.should.have.length(2)
-// 		// 				done();
-// 		// 			});
-// 		// 	});
-// 		// });
     });
 });
