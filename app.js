@@ -6,7 +6,6 @@ const helpers = require("./controller/helper.controller");
 const { toXML } = require('jstoxml');
 const sendData = helpers.sendJsonXml
 let uriDb = "mongodb://";
-//mongodb://Thomas:cloudservices@localhost:27017/?authMechanism=DEFAULT
 if (process.env.NODE_ENV !== "production"){
     require("dotenv").config();
 }
@@ -20,9 +19,6 @@ uriDb += `${process.env.HOSTNAME}:${process.env.DBPORT}/${process.env.DBNAME}`
 if (process.env.DB_CONNECT) {
     uriDb = process.env.DB_CONNECT
 }
-
-console.log(uriDb);
-
 
 mongoose.connect(uriDb, {useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
