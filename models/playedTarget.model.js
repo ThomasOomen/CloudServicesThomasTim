@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const playedTargetSchema = new Schema({
+const playedTargetSchema = mongoose.Schema({
     picture: {
         required: true,
         type: String,
@@ -27,10 +26,11 @@ const playedTargetSchema = new Schema({
         type: Object,
         required: false,
     }],
-});
 
-const playedTargetModel = mongoose.model('playedTarget', playedTargetSchema)
-module.exports = playedTargetModel;
+});
+// Export target model
+const playedTarget = mongoose.model('playedTarget', playedTargetSchema);
+module.exports = playedTarget;
 module.exports.get = (callback, limit) => {
     playedTarget.find(callback).limit(limit);
 };
