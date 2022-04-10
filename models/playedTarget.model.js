@@ -28,3 +28,6 @@ const playedTargetSchema = new Schema({
         required: false,
     }],
 });
+
+const playedTargetModel = mongoose.model('playedTarget', playedTargetSchema)
+module.exports = playedTargetModel;
