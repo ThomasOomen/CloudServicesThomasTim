@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const verify = require("../controller/authorization.controller")
+const verify = require("../controller/authorization.controller");
 
 const locationController = require("../controller/location.controller");
 const locationTargetController = require("../controller/locationTarget.controller");
