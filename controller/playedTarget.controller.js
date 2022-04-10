@@ -101,11 +101,11 @@ exports.newPlayedTarget = (req, res) => {
                             }
                             else {
                                 // append the image to the folder of the original target
-                                let originalPicturePath = target.picture.split('/o')[0];
-                                let fullImagePath = originalPicturePath + "/" + playedTarget._id + '.png';
-                                fs.writeFile(fullImagePath, PlayedTargetObj['picture'], 'base64', function (err) {
-                                    if (err) { console.log(err) };
-                                });
+                                // let originalPicturePath = target.picture.split('/o')[0];
+                                // let fullImagePath = originalPicturePath + "/" + playedTarget._id + '.png';
+                                // fs.writeFile(fullImagePath, PlayedTargetObj['picture'], 'base64', function (err) {
+                                //     if (err) { console.log(err) };
+                                // });
                                 //update the picture path in database to a real picture path
                                 playedTarget['picture'] = fullImagePath;
                                 playedTarget.save((TargetError) => {
