@@ -23,7 +23,7 @@ if (process.env.DB_CONNECT) {
     uriDb = process.env.DB_CONNECT
 }
 
-mongoose.connect(uriDb, {useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uriDb, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
         const app = express();   
         
@@ -60,4 +60,4 @@ mongoose.connect(uriDb, {useNewUrlParser: true, useUnifiedTopology: true })
             console.log("server has started on port " + process.env.PORT);
         })
     }
-)
+);

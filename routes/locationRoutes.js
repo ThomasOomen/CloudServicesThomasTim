@@ -11,14 +11,14 @@ const locationOwnerController = require("../controller/locationOwner.controller"
 router
     .route("/location")
     .get(locationController.getLocations)
-    .post(verify, locationController.newLocation);
+    .post(locationController.newLocation);
 
 router
     .route("/location/:location_id")
-    .get(verify, locationController.viewLocation)
-    .put(verify, locationController.updateLocation)
-    .delete(verify, locationTargetController.deleteLocation)
-    .post(verify, locationTargetController.addTarget);
+    .get(locationController.viewLocation)
+    .put(locationController.updateLocation)
+    .delete(locationTargetController.deleteLocation)
+    .post(locationTargetController.addTarget);
 
 router
     .route("/location/:location_id/target/:target_id/")

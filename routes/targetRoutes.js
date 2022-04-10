@@ -8,14 +8,14 @@ const targetHintController = require("../controller/targetHint.controller");
 
 router
     .route("/target")
-    .get(verify, targetController.getTargets)
-    .post(verify, targetController.newTarget);
+    .get(targetController.getTargets)
+    .post(targetController.newTarget);
     
 router
     .route("/target/:target_id")
-    .get(verify, targetController.viewTarget)
-    .put(verify, targetController.updateTarget)
-    .delete(verify, targetController.deleteTarget);
+    .get(targetController.viewTarget)
+    .put(targetController.updateTarget)
+    .delete(targetController.deleteTarget);
 
 router
     .route("/target/:target_id/score/:score_id")
