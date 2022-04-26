@@ -159,8 +159,8 @@ exports.newPlayedTarget = (req, res) => {
                                                         const allowedScoreOffset = 15;
                                                         let scoredKeys = [];
                                                         Object.keys(compareScorePlayedTarget).forEach((key) => {
-                                                            console.log(key);
-                                                            console.log(compareScoreTarget);
+                                                            console.log('key: ', key);
+                                                            console.log('compareScoreTarget: ', compareScoreTarget);
                                                             console.log(key in compareScoreTarget);
                                                             if (key in compareScoreTarget) {
                                                                 let currentTargetScore = compareScoreTarget[key];
