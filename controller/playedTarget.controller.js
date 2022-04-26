@@ -134,7 +134,6 @@ exports.newPlayedTarget = (req, res) => {
                                             try {
                                                 const response = await got.post('https://api.imagga.com/v2/tags', { body: formData, username: apiKey, password: apiSecret });
                                                 let score = JSON.parse(response.body)['result']['tags'];
-                                                console.log(score);
                                                 Target.findById(playedTarget.target, (err, target) => {
                                                     if (err) {
                                                         console.log(err);
@@ -152,8 +151,9 @@ exports.newPlayedTarget = (req, res) => {
                                                         }
                                                         let compareScorePlayedTarget = [];
                                                         for (let i = 0; i < playedTargetScore.length; i++) {
-                                                            console.log('playedTargetScore[i][confidence]: ', playedTargetScore[i]['confidence']);
+                                                            
                                                             if (playedTargetScore[i]['confidence'] > minimalConfidence) {
+                                                                console.log('playedTargetScore[i][confidence]: ', playedTargetScore[i]['confidence']);
                                                                 compareScorePlayedTarget[playedTargetScore[i]['tag']['en']] = playedTargetScore[i]['confidence'];
                                                             }
                                                         }
