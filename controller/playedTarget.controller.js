@@ -148,12 +148,13 @@ exports.newPlayedTarget = (req, res) => {
                                                         for (let i = 0; i < targetScore.length; i++) {
                                                             if (targetScore[i]['confidence'] > minimalConfidence)
                                                                 compareScoreTarget[targetScore[i]['tag']['en']] = targetScore[i]['confidence'];
+                                                                console.log('targetScore[i][confidence]: ', targetScore[i]['confidence']);
                                                         }
                                                         let compareScorePlayedTarget = [];
                                                         for (let i = 0; i < playedTargetScore.length; i++) {
                                                             if (playedTargetScore[i]['confidence'] > minimalConfidence) {
                                                                 compareScorePlayedTarget[playedTargetScore[i]['tag']['en']] = playedTargetScore[i]['confidence'];
-                                                                console.log('targetScore[i][confidence]: ', targetScore[i]['confidence']);
+                                                                
                                                                 console.log('compareScorePlayedTarget[playedTargetScore[i][tag][en]]', compareScorePlayedTarget[playedTargetScore[i]['tag']['en']]);
                                                             }
                                                         }
@@ -161,9 +162,6 @@ exports.newPlayedTarget = (req, res) => {
                                                         const allowedScoreOffset = 15;
                                                         let scoredKeys = [];
                                                         Object.keys(compareScorePlayedTarget).forEach((key) => {
-                                                            console.log('key: ', key);
-                                                            console.log('compareScoreTarget: ', compareScoreTarget);
-                                                            console.log(key in compareScoreTarget);
                                                             if (key in compareScoreTarget) {
                                                                 let currentTargetScore = compareScoreTarget[key];
                                                                 let currentPlayedScore = compareScorePlayedTarget[key];
