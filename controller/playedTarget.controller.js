@@ -133,8 +133,8 @@ exports.newPlayedTarget = (req, res) => {
                                         (async () => {
                                             try {
                                                 const response = await got.post('https://api.imagga.com/v2/tags', { body: formData, username: apiKey, password: apiSecret });
-                                                console.log(response);
                                                 let score = JSON.parse(response.body)['result']['tags'];
+                                                console.log(score);
                                                 Target.findById(playedTarget.target, (err, target) => {
                                                     if (err) {
                                                         console.log(err);
@@ -159,6 +159,7 @@ exports.newPlayedTarget = (req, res) => {
                                                         const allowedScoreOffset = 15;
                                                         let scoredKeys = [];
                                                         Object.keys(compareScorePlayedTarget).forEach((key) => {
+                                                            console.log(key in compareScoreTarget);
                                                             if (key in compareScoreTarget) {
                                                                 let currentTargetScore = compareScoreTarget[key];
                                                                 let currentPlayedScore = compareScorePlayedTarget[key];
