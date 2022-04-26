@@ -173,6 +173,7 @@ exports.newPlayedTarget = (req, res) => {
                                                             { _id: playedTarget._id },
                                                             { $set: { score: score, scorePercentage: scorePercentage, completed: isCompleted } },
                                                             function (err, result) {
+                                                                console.log("score: ", scorePercentage);
                                                                 console.log("score succesfully added to target")
                                                             }
                                                         );
