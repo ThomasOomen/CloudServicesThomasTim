@@ -146,9 +146,10 @@ exports.newPlayedTarget = (req, res) => {
                                                         const minimalConfidence = 20;
 
                                                         for (let i = 0; i < targetScore.length; i++) {
+                                                            console.log('targetScore[i][confidence]: ', targetScore[i]['confidence']);
                                                             if (targetScore[i]['confidence'] > minimalConfidence)
                                                                 compareScoreTarget[targetScore[i]['tag']['en']] = targetScore[i]['confidence'];
-                                                                console.log('targetScore[i][confidence]: ', targetScore[i]['confidence']);
+                                                                
                                                         }
                                                         let compareScorePlayedTarget = [];
                                                         for (let i = 0; i < playedTargetScore.length; i++) {
