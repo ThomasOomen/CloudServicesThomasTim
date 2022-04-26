@@ -167,6 +167,8 @@ exports.newPlayedTarget = (req, res) => {
                                                             }
                                                         });
                                                         targetKeys = Object.keys(compareScoreTarget)
+                                                        console.log("targetKeys: ", targetKeys);
+                                                        console.log("targetKeys: ", compareScoreTarget);
                                                         let scorePercentage = Math.round((scoredKeys.length / targetKeys.length) * 100);
                                                         const isCompleted = (scorePercentage > 80);
                                                         PlayedTarget.findByIdAndUpdate(
