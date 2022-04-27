@@ -3,6 +3,7 @@ const helpers = require("./helper.controller");
 let sendData = helpers.sendJsonXml;
 
 exports.getPlayedTargetScore = (req, res) => {
+    console.log('test 123');
     PlayedTarget.findById(req.params.playedTarget_id, (err, playedTarget) => {
         if (err) {
             res.status(400).json({
