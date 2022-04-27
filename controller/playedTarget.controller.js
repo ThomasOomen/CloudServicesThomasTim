@@ -139,9 +139,9 @@ exports.newPlayedTarget = (req, res) => {
                                                         console.log(err);
                                                     }
                                                     else {
-                                                        console.log(target);
                                                         // calculate the score of the picture
                                                         let playedTargetScore = score
+                                                        console.log('score: ', score);
                                                         let targetScore = target.score;
                                                         let compareScoreTarget = [];
                                                         const minimalConfidence = 20;
