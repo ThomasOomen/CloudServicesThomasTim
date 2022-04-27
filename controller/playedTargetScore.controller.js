@@ -15,7 +15,7 @@ exports.getPlayedTargetScore = (req, res) => {
             if (Object.keys(playedTarget['target']).includes(req.params.target_id)) {
                 res.status(200).sendData(JSON.stringify({
                     message: 'PlayedTarget score loading..',
-                    data: playedTarget['score'][req.params.target_id],
+                    data: playedTarget['score'][0],
                 }));
             }
             else {
