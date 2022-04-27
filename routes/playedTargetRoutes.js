@@ -26,7 +26,7 @@ router
     .get(verify, playedTargetScoreController.getPlayedTargetScore);
 
 router
-    .route("/playedTarget/:playedTarget_id/scores/:target_id")
+    .route("/playedTarget/:playedTarget_id/scores")
     .get(verify, playedTargetScoreController.getPlayedTargetScores)
     
 module.exports = router;
