@@ -22,7 +22,7 @@ router
     .get(verify, playedTargetLinkedController.LinkedTarget)
 
 router
-    .route("/playedTarget/:playedTarget_id/score/:target_id")
+    .route("/playedTarget/:playedTarget_id/score/:score_id")
     .get(verify, playedTargetScoreController.getPlayedTargetScore);
 
 router
