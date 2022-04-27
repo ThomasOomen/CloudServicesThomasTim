@@ -5,7 +5,7 @@ const LocationSchema = new Schema({
     locationName:{
         type:String,
         required: true,
-        unique: true,
+        unique: false,
     },
 
     longitude:{
