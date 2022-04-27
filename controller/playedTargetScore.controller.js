@@ -12,7 +12,7 @@ exports.getPlayedTargetScore = (req, res) => {
         }
         else {
             console.log('req.params.id:', req.params);
-            console.log("lel: ", Object.keys(playedTarget.id));
+            console.log("lel: ", Object.keys(playedTarget));
             if (Object.keys(playedTarget['target']).includes(req.params.target_id)) {
                 console.log("in hier");
                 res.status(200).sendData(JSON.stringify({
