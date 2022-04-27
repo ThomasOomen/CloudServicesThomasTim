@@ -3,7 +3,6 @@ const helpers = require("./helper.controller");
 let sendData = helpers.sendJsonXml;
 
 exports.getPlayedTargetScore = (req, res) => {
-    console.log('test 123');
     PlayedTarget.findById(req.params.playedTarget_id, (err, playedTarget) => {
         if (err) {
             res.status(400).json({
@@ -13,7 +12,7 @@ exports.getPlayedTargetScore = (req, res) => {
         }
         else {
             console.log("lel: ", playedTarget);
-            if (Object.keys(playedTarget['score']).includes(req.params.score_id)) {
+            if (Object.keys(playedTarget['target']).includes(req.params.score_id)) {
                 res.status(200).sendData(JSON.stringify({
                     message: 'PlayedTarget score loading..',
                     data: playedTarget['score'][req.params.score_id],
