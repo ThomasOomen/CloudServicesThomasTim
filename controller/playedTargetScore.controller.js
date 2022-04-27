@@ -12,11 +12,10 @@ exports.getPlayedTargetScore = (req, res) => {
         }
         else {
             console.log("lel: ", playedTarget);
-            if (Object.keys(playedTarget['target']).includes(req.params.score_id)) {
+            if (Object.keys(playedTarget['target']).includes(req.params.target_id)) {
                 res.status(200).sendData(JSON.stringify({
                     message: 'PlayedTarget score loading..',
-                    data: playedTarget['score'][req.params.score_id],
-
+                    data: playedTarget['score'][req.params.target_id],
                 }));
             }
             else {
