@@ -33,5 +33,5 @@ const TargetSchema = new Schema({
     }
 })
 
-const TargetModel = mongoose.model('Target', TargetSchema)
+const TargetModel = mongoose.model('target', TargetSchema)
 module.exports = TargetModel;

@@ -1,22 +1,24 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
-const passport = require("passport");
 const router = require("./routes/routes");
 const helpers = require("./controller/helper.controller");
 const { toXML } = require('jstoxml');
 const sendData = helpers.sendJsonXml
 let uriDb = "mongodb://";
-
 if (process.env.NODE_ENV !== "production"){
     require("dotenv").config();
 }
 
-if (process.env.username && process.env.password) {
-    uriDb += `${username}:${password}@`;
+if (process.env.USERNAME && process.env.PASSWORD) {
+    uriDb += `${process.env.USERNAME}:${process.env.PASSWORD}@`;
 }
 
 uriDb += `${process.env.HOSTNAME}:${process.env.DBPORT}/${process.env.DBNAME}`
+
+if (process.env.DB_CONNECT) {
+    uriDb = process.env.DB_CONNECT
+}
 
 mongoose.connect(uriDb, {useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {

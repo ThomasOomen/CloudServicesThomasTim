@@ -1,8 +1,8 @@
 const Location = require("../models/location.model");
 const Target = require("../models/target.model");
 const helpers = require("./helper.controller");
-let sendData = helpers.sendJsonXml;
 const fs = require('fs');
+let sendData = helpers.sendJsonXml;
 
 exports.getTargets = (req, res) => {
     let page = 0;

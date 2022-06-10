@@ -27,7 +27,6 @@ app.use(require('../routes/locationRoutes'));
 app.use(require('../routes/playedTargetRoutes'));
 app.use(require('../routes/routes'));
 app.use(require('../routes/targetRoutes'));
-app.use(require('../routes/userRoutes'));
 
 function sendData(obj, req, res) {
 	if (req.accepts('json') || req.accepts('text/html')) {
